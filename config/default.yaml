@@ -1,8 +1,8 @@
 defaults:
   - paths: default
-  - wandb: luca-scimeca
-  - data: xela
-  - model: byol_alexnet
+  - wandb: luca
+  - data: gelsight
+  - model: dino_vit
   - override hydra/job_logging: colorlog
   - override hydra/hydra_logging: colorlog
   - _self_
