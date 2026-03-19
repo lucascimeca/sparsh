@@ -1,13 +1,13 @@
 defaults:
   - paths: default
-  - wandb: akash
+  - wandb: luca-scimeca
   - data: xela
   - model: byol_alexnet
   - override hydra/job_logging: colorlog
   - override hydra/hydra_logging: colorlog
   - _self_
 
-seed: 42
+seed: 123
 model_size: base
 model_embed_dim: 768
 resume_id: ~
