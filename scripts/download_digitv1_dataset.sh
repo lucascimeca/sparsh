@@ -8,10 +8,13 @@ mkdir -p "$path_dataset/digitv1"
 cd "$path_dataset/digitv1"
 
 echo "Downloading the backbone dataset for DIGITv1..."
-gdown "https://drive.google.com/drive/folders/19vs-5dSqakiJ96ykBdHbhDuc8EoYK0eg?usp=sharing" --folder
+# Don't fail the whole script if gdown can't fetch one file in the folder
+if ! gdown "https://drive.google.com/drive/folders/19vs-5dSqakiJ96ykBdHbhDuc8EoYK0eg?usp=sharing" --folder; then
+  echo "WARNING: gdown reported an error (likely a file permission/throttle issue). Continuing with whatever was downloaded..."
+fi
 
 # extract files
-cd "./Object-Slide"
+cd "./Object-Slide" || { echo "ERROR: Object-Slide directory not found."; exit 1; }
 
 # If no matches, don't treat globs as literal strings
 shopt -s nullglob
