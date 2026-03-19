@@ -3,8 +3,8 @@ defaults:
   - wandb: luca
   - data: gelsight
   - model: dino_vit
-  - override hydra/job_logging: colorlog
-  - override hydra/hydra_logging: colorlog
+  - override hydra/job_logging: default
+  - override hydra/hydra_logging: default
   - _self_
 
 seed: 123
