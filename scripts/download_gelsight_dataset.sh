@@ -9,14 +9,18 @@ cd "$path_dataset/gelsight"
 
 # download object_folder dataset
 echo "Downloading the backbone dataset gelsight/object_folder..."
-gdown "https://drive.google.com/drive/folders/1kgKj3BhvSN8bF1hI2bjeqhcaCHyxJUss?usp=sharing" --folder
+if ! gdown "https://drive.google.com/drive/folders/1kgKj3BhvSN8bF1hI2bjeqhcaCHyxJUss?usp=sharing" --folder; then
+  echo "WARNING: gdown reported an error for object_folder (likely permission/throttle). Continuing..."
+fi
 
 # download touch_go dataset
 echo "Downloading the backbone dataset gelsight/touch_go..."
-gdown "https://drive.google.com/drive/folders/1Rpy9ZHCfJjwycj7TMuEbwwHEtH79ls8D?usp=sharing" --folder
+if ! gdown "https://drive.google.com/drive/folders/1Rpy9ZHCfJjwycj7TMuEbwwHEtH79ls8D?usp=sharing" --folder; then
+  echo "WARNING: gdown reported an error for touch_go (likely permission/throttle). Continuing..."
+fi
 
 # extract files (tarballs are likely downloaded directly into touch_go)
-cd "./touch_go" || exit 1
+cd "./touch_go" || { echo "ERROR: touch_go directory not found."; exit 1; }
 
 # If no matches, don't treat globs as literal strings
 shopt -s nullglob
