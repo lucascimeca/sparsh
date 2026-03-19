@@ -1,7 +1,7 @@
 defaults:
   - paths: default
   - wandb: luca
-  - data: gelsight
+  - data: vision_based
   - model: dino_vit
   - override hydra/job_logging: default
   - override hydra/hydra_logging: default
