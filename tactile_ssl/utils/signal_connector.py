@@ -14,8 +14,12 @@ from types import FrameType
 from typing import Any, Callable, Dict, List, Set, Union
 
 from lightning.fabric.plugins.environments import SLURMEnvironment
-from lightning.fabric.utilities.imports import _IS_WINDOWS, _PYTHON_GREATER_EQUAL_3_8_0
+# Remove the missing flag from this import line
+from lightning.fabric.utilities.imports import _IS_WINDOWS
 from lightning.fabric.utilities.rank_zero import rank_prefixed_message, rank_zero_info
+
+# Manually define it here so the rest of the file doesn't break
+_PYTHON_GREATER_EQUAL_3_8_0 = True
 
 # copied from signal.pyi
 _SIGNUM = Union[int, signal.Signals]
