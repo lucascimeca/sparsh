@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set path to the directory to donwload the dataset
-path_dataset="/media/chiguera/GUM/datasets/"
+path_dataset="/sg-pretrain/luca/data/"
 
 mkdir -p $path_dataset/gelsight
 cd $path_dataset/gelsight
