@@ -14,6 +14,7 @@ import torch
 from lightning.fabric.accelerators import Accelerator
 from lightning.fabric.strategies import Strategy
 from lightning_utilities import apply_to_collection
+from torch.optim.lr_scheduler import LRScheduler
 from tqdm import tqdm
 
 from tactile_ssl.algorithm.module import Module  # noqa F401
@@ -270,7 +271,7 @@ class Trainer:
         train_loader: torch.utils.data.DataLoader,
         limit_batches: Union[int, float] = float("inf"),
         scheduler_cfg: Optional[
-            Mapping[str, Union[L.fabric.utilities.types.LRScheduler, bool, str, int]]
+            Mapping[str, Union[LRScheduler, bool, str, int]]
         ] = None,
         wd_scheduler_cfg: Optional[Mapping[str, Union[object, bool, str, int]]] = None,
     ):
@@ -463,7 +464,7 @@ class Trainer:
     def step_scheduler(
         self,
         scheduler_cfg: Optional[
-            Mapping[str, Union[L.fabric.utilities.types.LRScheduler, bool, str, int]]
+            Mapping[str, Union[LRScheduler, bool, str, int]]
         ],
         level: Literal["step", "epoch"],
         current_value: int,
@@ -641,7 +642,7 @@ class Trainer:
     ) -> Tuple[
         Optional[L.fabric.utilities.types.Optimizable],
         Optional[
-            Mapping[str, Union[L.fabric.utilities.types.LRScheduler, bool, str, int]]
+            Mapping[str, Union[LRScheduler, bool, str, int]]
         ],
         Optional[Mapping[str, Union[object, bool, str, int]]],
     ]:
