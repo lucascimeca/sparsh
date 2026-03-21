@@ -35,7 +35,10 @@ class VisionTactileBackboneDataset(data.Dataset):
     ):
         super().__init__()
         self.config = config
-        self.sensor_type = self.config.sensor
+        # Prefer explicit sensor_type argument; fall back to config if present.
+        self.sensor_type = (
+            sensor_type if not hasattr(self.config, "sensor") else self.config.sensor
+        )
         self.dataset_name = dataset_name
 
         assert self.sensor_type in ["digit", "gelsight", "gelsight_mini"], ValueError(
