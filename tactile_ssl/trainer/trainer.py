@@ -7,6 +7,7 @@ import os
 from collections.abc import Mapping
 from functools import partial
 from typing import Any, Iterable, List, Literal, Optional, Tuple, Union, cast
+from torch.optim.lr_scheduler import LRScheduler
 
 import lightning as L
 import numpy as np
@@ -664,7 +665,7 @@ class Trainer:
             return configure_optim_output, None, None
 
         # single lr scheduler
-        if isinstance(configure_optim_output, L.fabric.utilities.types.LRScheduler):
+        if isinstance(configure_optim_output, LRScheduler):
             return (
                 None,
                 _lr_sched_defaults.update(scheduler=configure_optim_output),
@@ -698,7 +699,7 @@ class Trainer:
                 )
 
             if all(
-                isinstance(_lr_cand, (L.fabric.utilities.types.LRScheduler, Mapping))
+                isinstance(_lr_cand, (LRScheduler, Mapping))
                 for _lr_cand in configure_optim_output
             ):
                 # single scheduler in list
