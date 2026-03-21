@@ -18,7 +18,7 @@ num_frames: 2
 frame_stride: 5
 
 trainer:
-  max_epochs: ~
+  max_epochs: 1000
   grad_clip_norm: 10.0
   validation_frequency: 10
   checkpoint_frequency: 20
