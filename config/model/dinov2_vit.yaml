@@ -49,7 +49,7 @@ online_probes:
   - _target_: tactile_ssl.probe.OnlineProbeModule
     probe_name: 'reconstruction'
     decoder:
-        _target_: tactile_ssl.probes.DecoderImage
+        _target_: tactile_ssl.probe.reconstruction.DecoderImage
         in_chans: 3
         patch_size: 16
         input_embed_dim: 768
