@@ -1,4 +1,4 @@
-data_root: /sg-pretrain/luca/data/
+data_root: /sg-pretrain/luca/data
 encoder_checkpoint_root: /sg-pretrain/luca/projects/sparsh/checkpoints
 log_dir: /sg-pretrain/luca/projects/sparsh/logs
 tacbench_dir: /sg-pretrain/luca/projects/sparsh/tacbench
