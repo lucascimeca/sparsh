@@ -55,7 +55,7 @@ sensor:
 
         transforms:
           with_augmentation: true
-          resize: [320, 240]
+          resize: [224, 224] # [320, 240]
           p_flip: 0.5
           p_crop: 0.2
           p_rot: 0.2
@@ -79,7 +79,7 @@ sensor:
 
         transforms:
           with_augmentation: true
-          resize: [320, 240]
+          resize: [224, 224] # [320, 240]
           p_flip: 0.5
           p_crop: 0.2
           p_rot: 0.2
