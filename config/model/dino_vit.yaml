@@ -48,7 +48,7 @@ online_probes:
         _target_: tactile_ssl.probe.reconstruction.DecoderImage
         in_chans: 6
         patch_size: 16
-        input_embed_dim: 768
+        input_embed_dim: 384
         embed_dim: 192
         depth: 4
     loss_fn:
